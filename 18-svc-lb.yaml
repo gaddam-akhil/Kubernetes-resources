@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: service
+metadata:
+ name: nginx-lb 
+spec:
+  type: LoadBalancer
+  selector:  
+    project: roboshop
+    component: frontend
+    environment: 
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
