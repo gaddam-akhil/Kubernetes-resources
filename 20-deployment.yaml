@@ -48,7 +48,7 @@ kind: Service
 metadata:
   name: nginx-headless
 spec:
-  clusterIP: none
+  clusterIP: None   # ← capital N, otherwise it's invalid
   selector:
     # labels are used as delectors
     project: roboshop
