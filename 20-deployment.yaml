@@ -37,8 +37,6 @@ spec:
   selector:
     # labels are used as delectors
     project: roboshop
-    purpose: rs-demo
-    tier: frontend
     component: frontend 
   ports:
   - protocol: TCP
