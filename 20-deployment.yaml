@@ -41,4 +41,19 @@ spec:
   ports:
   - protocol: TCP
     port: 80 #sevice port (internal cluster IP)
-    targetPort: 80           
+    targetPort: 80      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-headless
+spec:
+  clusterIP: none
+  selector:
+    # labels are used as delectors
+    project: roboshop
+    component: frontend 
+  ports:
+  - protocol: TCP
+    port: 80 #sevice port (internal cluster IP)
+    targetPort: 80            
