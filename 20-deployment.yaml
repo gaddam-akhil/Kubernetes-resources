@@ -10,7 +10,7 @@ metadata:
   annotations: 
     kubernetes.io/change-cause: "movind to 1.29.7"  
 spec:
-    replicas: 10
+    replicas: 4
     selector:
       matchLabels:  
         project: roboshop
@@ -28,3 +28,19 @@ spec:
         containers:
         - name: nginx
           image: nginx:1.29.7
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  selector:
+    # labels are used as delectors
+    project: roboshop
+    purpose: rs-demo
+    tier: frontend
+    component: frontend 
+  ports:
+  - protocol: TCP
+    port: 80 #sevice port (internal cluster IP)
+    targetPort: 80           
